@@ -1,14 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
+<AnchorPane prefHeight="400.0" prefWidth="600.0"
+            xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="viewctrl.EnergyController"
-            prefHeight="400.0" prefWidth="600.0">
+            fx:controller="viewctrl.EnergyController">
 
+    <children>
+        <Label text="Energieverwaltung" style="-fx-font-size: 20px; -fx-font-weight: bold;"
+               layoutX="30.0" layoutY="20.0"/>
+
+        <Label text="Bezirk:"  layoutX="30.0"  layoutY="70.0"/>
+        <TextField fx:id="fieldBezirk" layoutX="100.0" layoutY="67.0" prefWidth="130.0"/>
+
+        <Label text="kWh:"     layoutX="250.0" layoutY="70.0"/>
+        <TextField fx:id="fieldKwh"    layoutX="290.0" layoutY="67.0" prefWidth="90.0"/>
+
+        <Label text="Monat:"   layoutX="400.0" layoutY="70.0"/>
+        <TextField fx:id="fieldMonat"  layoutX="450.0" layoutY="67.0" prefWidth="110.0"/>
+
+        <Button text="Hinzufügen" onAction="#energieHinzufuegen"
+                layoutX="30.0" layoutY="110.0"/>
+        <Button text="Löschen"    onAction="#energieLoeschen"
+                layoutX="140.0" layoutY="110.0"/>
+
+        <TableView fx:id="tabelleEnergie"
+                   layoutX="30.0" layoutY="155.0"
+                   prefHeight="185.0" prefWidth="540.0">
+            <columns>
+                <TableColumn fx:id="colBezirk" text="Bezirk" prefWidth="180.0"/>
+                <TableColumn fx:id="colKwh"    text="kWh"    prefWidth="120.0"/>
+                <TableColumn fx:id="colMonat"  text="Monat"  prefWidth="140.0"/>
+            </columns>
+        </TableView>
+
+        <Button text="← Zurück" onAction="#zurueck"
+                layoutX="30.0" layoutY="355.0"/>
+    </children>
 </AnchorPane>

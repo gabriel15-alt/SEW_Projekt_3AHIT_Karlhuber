@@ -1,14 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
+<AnchorPane prefHeight="400.0" prefWidth="600.0"
+            xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="viewctrl.GarbageController"
-            prefHeight="400.0" prefWidth="600.0">
+            fx:controller="viewctrl.GarbageController">
 
+    <children>
+        <Label text="Müllabfuhr-Routen" style="-fx-font-size: 20px; -fx-font-weight: bold;"
+               layoutX="30.0" layoutY="20.0"/>
+
+        <Label text="Straße:"    layoutX="30.0"  layoutY="70.0"/>
+        <TextField fx:id="fieldStrasse"   layoutX="100.0" layoutY="67.0" prefWidth="130.0"/>
+
+        <Label text="Bezirk:"    layoutX="250.0" layoutY="70.0"/>
+        <TextField fx:id="fieldBezirk"    layoutX="310.0" layoutY="67.0" prefWidth="100.0"/>
+
+        <Label text="Abholtag:"  layoutX="425.0" layoutY="70.0"/>
+        <TextField fx:id="fieldAbholtag"  layoutX="495.0" layoutY="67.0" prefWidth="80.0"/>
+
+        <Button text="Hinzufügen" onAction="#routeHinzufuegen"
+                layoutX="30.0" layoutY="110.0"/>
+        <Button text="Löschen"    onAction="#routeLoeschen"
+                layoutX="140.0" layoutY="110.0"/>
+
+        <TableView fx:id="tabelleGarbage"
+                   layoutX="30.0" layoutY="155.0"
+                   prefHeight="185.0" prefWidth="540.0">
+            <columns>
+                <TableColumn fx:id="colStrasse"   text="Straße"   prefWidth="180.0"/>
+                <TableColumn fx:id="colBezirk"    text="Bezirk"   prefWidth="150.0"/>
+                <TableColumn fx:id="colAbholtag"  text="Abholtag" prefWidth="110.0"/>
+            </columns>
+        </TableView>
+
+        <Button text="← Zurück" onAction="#zurueck"
+                layoutX="30.0" layoutY="355.0"/>
+    </children>
 </AnchorPane>

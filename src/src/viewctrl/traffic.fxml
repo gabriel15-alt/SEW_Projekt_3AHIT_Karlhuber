@@ -1,14 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
+<AnchorPane prefHeight="400.0" prefWidth="600.0"
+            xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="viewctrl.TrafficController"
-            prefHeight="400.0" prefWidth="600.0">
+            fx:controller="viewctrl.TrafficController">
 
+    <children>
+        <Label text="Verkehrsübersicht" style="-fx-font-size: 20px; -fx-font-weight: bold;"
+               layoutX="30.0" layoutY="20.0"/>
+
+        <!-- Eingaben -->
+        <Label text="Straße:"   layoutX="30.0"  layoutY="70.0"/>
+        <TextField fx:id="fieldStrasse"  layoutX="100.0" layoutY="67.0" prefWidth="130.0"/>
+
+        <Label text="Fzg/h:"    layoutX="250.0" layoutY="70.0"/>
+        <TextField fx:id="fieldFahrzeug" layoutX="295.0" layoutY="67.0" prefWidth="80.0"/>
+
+        <Label text="Status:"   layoutX="395.0" layoutY="70.0"/>
+        <TextField fx:id="fieldStatus"   layoutX="450.0" layoutY="67.0" prefWidth="110.0"/>
+
+        <Button text="Hinzufügen" onAction="#verkehrHinzufuegen"
+                layoutX="30.0" layoutY="110.0"/>
+        <Button text="Löschen"    onAction="#verkehrLoeschen"
+                layoutX="140.0" layoutY="110.0"/>
+
+        <TableView fx:id="tabelleTraffic"
+                   layoutX="30.0" layoutY="155.0"
+                   prefHeight="185.0" prefWidth="540.0">
+            <columns>
+                <TableColumn fx:id="colStrasse"  text="Straße"    prefWidth="180.0"/>
+                <TableColumn fx:id="colFahrzeug" text="Fzg/Std"   prefWidth="100.0"/>
+                <TableColumn fx:id="colStatus"   text="Status"    prefWidth="160.0"/>
+            </columns>
+        </TableView>
+
+        <Button text="← Zurück" onAction="#zurueck"
+                layoutX="30.0" layoutY="355.0"/>
+    </children>
 </AnchorPane>
